@@ -37,7 +37,32 @@ The flag is buried in one of the directory.
 
 I made a python script to scrape all dirs and at the end i just searched for "aup" in saved file.
 ```
-```
+import requests
+base_url = "https://challs.aupctf.live/dir/page/"
+start_page = 545
+end_page = 1000
+file_path = "directory_data.txt"
+file = open(file_path, "w")
+for page in range(start_page, end_page + 1):
+    url = base_url + str(page)
+
+    response = requests.get(url)
+    if response.status_code == 200:
+        file.write(f"--- Page {page} ---\n")
+        file.write(response.text)
+        file.write("\n\n")
+        print(f"Data from Page {page} saved.")
+    else:
+        print(f"Failed to retrieve data from Page {page}.")
+
+# Close the file
+file.close()
+print("All directory data saved to", file_path)
+``` python
+And it gave me flag in 5 minutes on Page 712.
+## Flag: aupCTF{d1r3ct0r13s-tr1v14l-fl4g}
+
+
 
 
 
