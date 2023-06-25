@@ -47,3 +47,16 @@ http://www.aup.edu.pk/library.php
 ![image](https://github.com/Mikivirus0/aupctf23/assets/85563293/5e7a52bc-98ff-4d69-9ac4-df8684f9b530)
 ### Flag: aupCTF{113600-11605}
 
+## Challenge Name: Don't copyvo me
+I love Wikipedia because it's free and open source to view - but I also hate it because people can remove content if they think it's a "copyright violation" - even if it's not. Our University kept having that happen to us - but thankfully our page looks pretty great right now!
+Can you tell me who kept doing that to the university and the total bytes of data they deleted? Don't use any commas.
+## Sol:
+This was easy, i just visited wikipedia and searched for "copy" and got the answer. (Because Copyvo was Tittle of Chall)
+https://en.wikipedia.org/w/index.php?title=University_of_Agriculture,_Peshawar&action=history&offset=&limit=500  
+![image](https://github.com/Mikivirus0/aupctf23/assets/85563293/38c11119-346c-427e-b2b0-854fb77b6a72)
+Added Both Bytes and Got Answer
+### Flag: aupCTF{Joelmills_19969}
+
+
+
+
