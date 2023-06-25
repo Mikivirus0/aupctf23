@@ -58,7 +58,8 @@ for page in range(start_page, end_page + 1):
 # Close the file
 file.close()
 print("All directory data saved to", file_path)
-``` python
+```
+
 And it gave me flag in 5 minutes on Page 712.
 ## Flag: aupCTF{d1r3ct0r13s-tr1v14l-fl4g}
 
