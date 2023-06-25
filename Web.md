@@ -30,6 +30,16 @@ I just tried same paylaod and got flag lmao. ```' OR 1 -- -```
 ![image](https://github.com/Mikivirus0/aupctf23/assets/85563293/4569e4d5-a69d-4187-83eb-77d93c15f7b9)
 ## Flag: aupCTF{m3d1um-sql-1nj3cti0n}
 
+## Challenge Name: Directory
+The flag is buried in one of the directory. 
+## Sol:
+![image](https://github.com/Mikivirus0/aupctf23/assets/85563293/470d476c-ef2e-4749-96f2-3ba0a1ef15a5)
+
+I made a python script to scrape all dirs and at the end i just searched for "aup" in saved file.
+```
+```
+
+
 
 
 
