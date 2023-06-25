@@ -57,6 +57,18 @@ https://en.wikipedia.org/w/index.php?title=University_of_Agriculture,_Peshawar&a
 Added Both Bytes and Got Answer
 ### Flag: aupCTF{Joelmills_19969}
 
+## Challenge Name: About-Face
+I'd love to work for a social media company when they're just starting out. Imagine getting a job at thefacebook, I mean facebook, I mean Meta - whatever they want to go by these days, way back when?
+Come to think of it, dropping the from their name was probably the smartest idea they ever had. My uncle said he applied for a role with their Network Operations team after he heard that they dropped 'the' from their name, but never heard back and thinks it's because the person he emailed left their job.
+I don't believe him, but he told me I can always reach out to the person he emailed to confirm. I doubt they still work there, but can you tell me the role he applied for and the first name of the person he reached out to? He said it should be easy to figure out - that team had only one role available that year and he applied before December.
+
+## Sol:
+Well after alot of research i got right thing from:
+https://web.archive.org/web/20051125181021/http://www.facebook.com/jobs.php
+![image](https://github.com/Mikivirus0/aupctf23/assets/85563293/fe5af260-a638-4393-846e-2718905ed61e)
+### Flag: aupCTF{senior_linux_systems_administrator_robin}
+
+
 
 
 
